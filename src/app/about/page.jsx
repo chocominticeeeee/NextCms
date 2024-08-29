@@ -1,12 +1,10 @@
-import Unti from "@/components/Unti";
-import Image from "next/image";
+import { getData } from "../actions/GetDataJson";
 
-export default function Home() {
+export default async function Home() {
+    const result = await getData();
     return (
-        <main className="flex flex-col min-h-screen  p-24">
-            <h1>About</h1>
-            <br />
-            <Unti></Unti>
+        <main className="flex flex-col min-h-screen p-24">
+            <h1>{result.message}</h1>
         </main>
     );
 }
